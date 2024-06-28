@@ -1,0 +1,58 @@
+.attribution {
+  margin-top: 16px;
+  font-size: 12px;
+  text-align: center;
+}
+
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+/* Your code here */
+body {
+  background-color: antiquewhite;
+  font-family: "Comfortaa", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-style: normal;
+  align-items: center;
+}
+
+#content {
+  padding: 20px;
+  margin: 20px;
+  background-color: white;
+  border-radius: 15px;
+}
+
+img {
+  object-fit: contain;
+  width: 100%;
+  border-radius: 16px;
+}
+
+main h1, h2 {
+  color: crimson;
+}
+
+.prepare {
+  background-color: #ffeff1;
+  padding: 16px;
+  border-radius: 12px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  border: 1px solid black;
+  padding-left: 16px;
+}
+
+th {
+  text-align: left;
+}
+/* Your code here */

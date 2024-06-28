@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign up</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      body {
+        display: flex;
+        width: 100dvw;
+        height: 100dvh;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      .login-form {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+      .name {
+        display: flex;
+        justify-content: space-between;
+        gap: 8px;
+      }
+      .name input {
+        flex-grow: 1;
+      }
+
+      input {
+        padding: 16px;
+        border-radius: 20px;
+        border: 1px solid rgb(234, 234, 234);
+      }
+      input:hover {
+        box-shadow: 5px 4px 15px 2px rgb(232, 232, 232);
+      }
+      button {
+        margin-top: 8px;
+        padding: 16px;
+        border-radius: 20px;
+        border: 1px solid rgb(234, 234, 234);
+        background-color: antiquewhite;
+        font-weight: bold;
+        color: rgb(147, 45, 5);
+        cursor: pointer;
+      }
+      button:hover {
+        box-shadow: 5px 4px 15px 2px rgb(232, 232, 232);
+      }
+      a {
+        text-decoration: unset;
+        color: rgb(147, 45, 5);
+      }
+
+      footer {
+        display: flex;
+        text-align: center;
+        position: absolute;
+        bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2 class="signup">Sign Up</h2>
+    <p>Already have an account? <a href="#login">Log in</a></p>
+
+    <form class="login-form">
+      <div class="name">
+        <input class="name1" type="text" placeholder="First name" />
+
+        <input class="name2" type="text" placeholder="Last name" />
+      </div>
+      <input type="date" placeholder="Date of birth" />
+      <input type="number" placeholder="Phone" />
+      <input type="email" placeholder="Email address" />
+      <input type="text" placeholder="Password" />
+      <input type="text" placeholder="Confirm password" />
+      <button class="button">Sign up</button>
+    </form>
+    <footer>
+      <p>&copy;copyright &</p>
+      <a href="">term and condition</a>
+      <input type="checkbox" />
+    </footer>
+  </body>
+</html>

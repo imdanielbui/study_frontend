@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bottom Navigation Bar</title>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    .Bottom-Navigation-Bar {
+      position: fixed;
+      bottom: 0px;
+      width: 100%;
+      height: 9dvh;
+      background-color: bisque;
+      border-radius: 20px 20px 0px 0px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: rgba(58, 58, 70, 0.2) 5px 7px 29px 4px;
+    }
+
+    .item {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      flex-basis: 0;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      border-radius: 20px 20px 0px 0px;
+      cursor: pointer;
+      height: inherit;
+    }
+    .item:hover {
+      background-color: aliceblue;
+      color: #591111;
+    }
+    svg:hover {
+      color: #591111;
+    }
+
+    .profile {
+      display: flex;
+      justify-content: flex-start;
+      height: 10dvh;
+      padding: 10px;
+      /* border-bottom: 1px solid rgb(204, 204, 204); */
+      box-shadow: rgba(174, 174, 176, 0.2) 0px 5px 15px 0px;
+
+    }
+
+    .img-profile {
+      border-radius: 50%;
+    }
+
+    .name {
+      margin-left: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .x {
+      font-weight: bold;
+    }
+    .user-name {
+      margin-top: 5px;
+      font-size: 0.9em;
+      padding: 5px 1px;
+      background-color: #f1f1f1;
+      border-radius: 30px;
+      box-shadow: 1px 3px 3px 0px #c6c6c6;
+
+    }
+
+    .body-app {
+      height: 78dvh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      margin-top: 20px;
+    }
+    .item-body {
+      padding: 20px;
+      margin: 10px;
+      width: 65dvw;
+      border-radius: 30px;
+      box-shadow: rgba(100, 100, 102, 0.2) 3px 5px 20px 0px;
+      cursor: pointer;
+    }
+
+    .item-body:hover{
+      background-color: rgba(255, 248, 240, 0.801);
+    }
+  </style>
+  <body>
+    <div class="Bottom-Navigation-Bar">
+      <div class="item home">
+        <div class="item-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+            <path fill="currentColor" d="M11.25 18a.75.75 0 0 0 1.5 0v-3a.75.75 0 0 0-1.5 0z" />
+            <path
+              fill="currentColor"
+              fill-rule="evenodd"
+              d="M12 1.25c-.708 0-1.351.203-2.05.542c-.674.328-1.454.812-2.427 1.416L5.456 4.491c-.92.572-1.659 1.03-2.227 1.465c-.589.45-1.041.91-1.368 1.507c-.326.595-.472 1.229-.543 1.978c-.068.725-.068 1.613-.068 2.726v1.613c0 1.904 0 3.407.153 4.582c.156 1.205.486 2.178 1.23 2.947c.747.773 1.697 1.119 2.875 1.282c1.14.159 2.598.159 4.434.159h4.116c1.836 0 3.294 0 4.434-.159c1.177-.163 2.128-.509 2.876-1.282c.743-.769 1.073-1.742 1.23-2.947c.152-1.175.152-2.678.152-4.582v-1.613c0-1.113 0-2-.068-2.726c-.07-.75-.217-1.383-.543-1.978c-.327-.597-.78-1.056-1.368-1.507c-.568-.436-1.306-.893-2.227-1.465l-2.067-1.283c-.973-.604-1.753-1.088-2.428-1.416c-.697-.34-1.34-.542-2.049-.542M8.28 4.504c1.015-.63 1.73-1.072 2.327-1.363c.581-.283.993-.391 1.393-.391s.812.108 1.393.391c.598.29 1.312.733 2.327 1.363l2 1.241c.961.597 1.636 1.016 2.14 1.402c.489.375.77.684.963 1.036c.193.353.306.766.365 1.398c.061.648.062 1.465.062 2.623v1.521c0 1.97-.002 3.376-.14 4.443c-.136 1.048-.393 1.656-.82 2.099c-.425.439-1.003.7-2.004.839c-1.026.142-2.379.144-4.286.144h-4c-1.908 0-3.26-.002-4.286-.144c-1.001-.14-1.579-.4-2.003-.84c-.428-.442-.685-1.05-.82-2.098c-.14-1.067-.141-2.472-.141-4.443v-1.521c0-1.158 0-1.975.062-2.623c.059-.632.172-1.045.365-1.398c.193-.352.474-.661.964-1.036c.503-.386 1.178-.805 2.139-1.402z"
+              clip-rule="evenodd"
+            />
+          </svg>
+          <p>Home</p>
+        </div>
+      </div>
+      <div class="item product">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+          <g fill="none" stroke="currentColor" stroke-width="1.5">
+            <path
+              d="M3.864 16.455c-.858-3.432-1.287-5.147-.386-6.301C4.378 9 6.148 9 9.685 9h4.63c3.538 0 5.306 0 6.207 1.154c.901 1.153.472 2.87-.386 6.301c-.546 2.183-.818 3.274-1.632 3.91c-.814.635-1.939.635-4.189.635h-4.63c-2.25 0-3.375 0-4.189-.635c-.814-.636-1.087-1.727-1.632-3.91Z"
+            />
+            <path d="m19.5 9.5l-.71-2.605c-.274-1.005-.411-1.507-.692-1.886A2.5 2.5 0 0 0 17 4.172C16.56 4 16.04 4 15 4M4.5 9.5l.71-2.605c.274-1.005.411-1.507.692-1.886A2.5 2.5 0 0 1 7 4.172C7.44 4 7.96 4 9 4" opacity="0.5" />
+            <path d="M9 4a1 1 0 0 1 1-1h4a1 1 0 1 1 0 2h-4a1 1 0 0 1-1-1Z" />
+          </g>
+        </svg>
+        <p>Product</p>
+      </div>
+      <div class="item Like">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+          <path
+            fill="currentColor"
+            d="m8.962 18.91l.464-.588zM12 5.5l-.54.52a.75.75 0 0 0 1.08 0zm3.038 13.41l.465.59zm-5.612-.588C7.91 17.127 6.253 15.96 4.938 14.48C3.65 13.028 2.75 11.335 2.75 9.137h-1.5c0 2.666 1.11 4.7 2.567 6.339c1.43 1.61 3.254 2.9 4.68 4.024zM2.75 9.137c0-2.15 1.215-3.954 2.874-4.713c1.612-.737 3.778-.541 5.836 1.597l1.08-1.04C10.1 2.444 7.264 2.025 5 3.06C2.786 4.073 1.25 6.425 1.25 9.137zM8.497 19.5c.513.404 1.063.834 1.62 1.16c.557.325 1.193.59 1.883.59v-1.5c-.31 0-.674-.12-1.126-.385c-.453-.264-.922-.628-1.448-1.043zm7.006 0c1.426-1.125 3.25-2.413 4.68-4.024c1.457-1.64 2.567-3.673 2.567-6.339h-1.5c0 2.198-.9 3.891-2.188 5.343c-1.315 1.48-2.972 2.647-4.488 3.842zM22.75 9.137c0-2.712-1.535-5.064-3.75-6.077c-2.264-1.035-5.098-.616-7.54 1.92l1.08 1.04c2.058-2.137 4.224-2.333 5.836-1.596c1.659.759 2.874 2.562 2.874 4.713zm-8.176 9.185c-.526.415-.995.779-1.448 1.043c-.452.264-.816.385-1.126.385v1.5c.69 0 1.326-.265 1.883-.59c.558-.326 1.107-.756 1.62-1.16z"
+          />
+        </svg>
+        <p>Favorite</p>
+      </div>
+      <div class="item Notification">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+          <g fill="none" stroke="currentColor" stroke-width="1.5">
+            <path
+              d="M18.75 9.71v-.705C18.75 5.136 15.726 2 12 2S5.25 5.136 5.25 9.005v.705a4.4 4.4 0 0 1-.692 2.375L3.45 13.81c-1.011 1.575-.239 3.716 1.52 4.214a25.775 25.775 0 0 0 14.06 0c1.759-.498 2.531-2.639 1.52-4.213l-1.108-1.725a4.4 4.4 0 0 1-.693-2.375Z"
+            />
+            <path stroke-linecap="round" d="M7.5 19c.655 1.748 2.422 3 4.5 3s3.845-1.252 4.5-3" opacity="0.5" />
+          </g>
+        </svg>
+        <p>Notification</p>
+      </div>
+      <div class="item Setting">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+          <path
+            fill="none"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="1.5"
+            d="M20.79 9.152C21.598 10.542 22 11.237 22 12s-.403 1.458-1.21 2.848l-1.923 3.316c-.803 1.384-1.205 2.076-1.865 2.456s-1.462.38-3.065.38h-3.874c-1.603 0-2.405 0-3.065-.38s-1.062-1.072-1.865-2.456L3.21 14.848C2.403 13.458 2 12.763 2 12s.403-1.458 1.21-2.848l1.923-3.316C5.936 4.452 6.338 3.76 6.998 3.38S8.46 3 10.063 3h3.874c1.603 0 2.405 0 3.065.38s1.062 1.072 1.865 2.456zM9 8l6 8"
+            color="currentColor"
+          />
+        </svg>
+        <p>Setting</p>
+      </div>
+    </div>
+    <section class="profile">
+      <img
+        src="https://img.freepik.com/free-psd/3d-illustration-person-with-sunglasses_23-2149436188.jpg?t=st=1719373903~exp=1719377503~hmac=f25da07d9a264c44c3e81722c175a7156543948cce6ecba17e29aa6d7d62fec5&w=740"
+        alt="image-profile"
+        class="img-profile"
+      />
+      <div class="name">
+        <p class="x">Daniel Bui</p>
+        <p class="user-name">@danielbui</p>
+      </div>
+    </section>
+    <section class="body-app">
+      <div class="item-body account">
+        <p>Account</p>
+      </div>
+      <div class="item-body map">
+        <p>Map</p>
+      </div>
+      <div class="item-body setting">
+        <p>Setting</p>
+      </div>
+      <div class="item-body about">
+        <p>About Us</p>
+      </div>
+      <div class="item-body Logout">
+        <p>Log out</p>
+      </div>
+    </section>
+  </body>
+</html>

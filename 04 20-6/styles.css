@@ -1,0 +1,32 @@
+h1 {
+  text-transform: uppercase;
+  font-size: 16px;
+  color: #666;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+th,td {
+  padding-left: 8px;
+  padding-right: 8px;
+  border: 1px solid #888;
+}
+img {
+  width: 6vw;
+  height: 6vw;
+  border-radius: 50%;
+  background-color: #e2e2e2;
+  padding: 5px;
+  object-fit: contain;
+  cursor: pointer;
+}
+figure {
+  text-align: center;
+}
+figcaption {
+  font-size: 14px;
+  color: #333;
+  text-transform: capitalize;
+  cursor: pointer;
+}

@@ -1,0 +1,54 @@
+.board{
+  box-shadow: 5px 4px 15px 2px rgb(232, 232, 232);
+padding: 40px;
+background-color: white;
+border-radius: 55px;
+}
+body {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 95dvh;
+  width: 95dvw;
+  background-color: rgb(255, 252, 250);
+}
+ a {
+  text-decoration: unset;
+  color: rgba(144, 92, 57, 0.855);
+}
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+button {
+  margin-top: 8px;
+  padding: 16px;
+  border-radius: 20px;
+  border: 1px solid rgb(234, 234, 234);
+  background-color: antiquewhite;
+  font-weight: bold;
+  color: rgb(147, 45, 5);
+  cursor: pointer;
+}
+::placeholder{
+  color: rgba(161, 159, 158, 0.599);
+
+}
+button:hover {
+  box-shadow: 5px 4px 15px 2px rgb(232, 232, 232);
+}
+input {
+  padding: 16px;
+  border-radius: 15px;
+  border: 1px solid rgb(234, 234, 234);
+}
+input:hover {
+  box-shadow: 5px 4px 15px 2px rgb(232, 232, 232);
+}
+.forgotpassword{
+  margin-top: 8px;
+  font-size: small;
+}

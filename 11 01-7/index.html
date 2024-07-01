@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grid Layout</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .grid-container {
+        background-color: rgb(162, 99, 17);
+        width: 100dvw;
+        height: 100dvh;
+        display: grid;
+        gap: 10px;
+        grid-template-areas:
+          "head head head head head"
+          "giua giua giua giua le"
+          "duoi duoi duoi duoi le";
+      }
+      .head {
+        background-color: rebeccapurple;
+        grid-area: head;
+      }
+      .giua {
+        grid-area: giua;
+        display: grid;
+        grid-template-columns: 1fr 2fr 1fr;
+        gap: 10px;
+        background-color: rgb(232, 137, 22);
+      }
+      .item-giua{
+        background-color: rgb(226, 36, 36)
+      }
+      .duoi {
+        background-color: aliceblue;
+        grid-area: duoi;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+      }
+      .item-duoi{background-color: black};
+      .le {
+        grid-area: le;
+        background-color: rgb(0, 150, 243);
+      }
+      
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="grid-container">
+        <div class="grid-item head"></div>
+        <div class="grid-item le"> <p>Lorem ipsum dolor sit amet.</p></div>
+        <div class="grid-item giua">
+          <div class="item-giua"></div>
+          <div class="item-giua"></div>
+          <div class="item-giua"></div>
+        </div>
+        <div class="grid-item duoi">
+          <div class="item-duoi"></div>
+          <div class="item-duoi"></div>
+          <div class="item-duoi"></div>
+          <div class="item-duoi"></div>
+        </div>
+        <div class="grid-item"></div>
+      </div>
+    </main>
+  </body>
+</html>

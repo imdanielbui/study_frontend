@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Using Break Point</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        all: unset;
+      }
+      #container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 5% 10% 20% 7% 5% auto;
+        grid-template-areas:
+          "header header"
+          "sidebar sidebar"
+          "img img"
+          "contentt contentt"
+          "tabbar tabbar"
+          "product product";
+          gap: 8px;
+      }
+      .header {
+        grid-area: header;
+        background-color: #f9a6a6;
+      }
+      .sidebar {
+        grid-area: sidebar;
+        background-color: #f9dfa6;
+      }
+      .img {
+        grid-area: img;
+        background-color: #921b1b;
+        width: 100%;
+  background-image: url('https://picsum.photos/700/500');
+  background-size: 100% 100%;
+      }
+      
+      .content {
+        grid-area: contentt;
+        background-color: #ff00c8;
+      }
+      .tab-bar {
+        grid-area: tabbar;
+        background-color: #921b1b;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+      }
+      #product {
+        grid-area: product;
+        background-color: #dc9f24;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+      }
+
+      @media screen and (min-width: 640px) {
+        #container {
+          display: grid;
+          grid-template-columns: 20% 1fr 1fr;
+          grid-template-rows: 10% 20% 15% 5% auto;
+          grid-template-areas:
+            "header header header"
+            "sidebar img img"
+            "sidebar img img"
+            "contentt contentt contentt"
+            "tabbar tabbar tabbar"
+            "product product product";
+            gap: 8px;
+        }
+
+        #product {
+          grid-area: product;
+          background-color: #dc9f24;
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 10px;
+        }
+      }
+
+      @media screen and (min-width: 1024px) {
+        #container {
+          display: grid;
+          grid-template-columns: 20% auto auto 20%;
+          grid-template-rows: 10% 40% 5% auto;
+          grid-template-areas:
+            "header header header header"
+            "sidebar img img contentt"
+            "sidebar img img contentt"
+            "tabbar tabbar tabbar tabbar"
+            "product product product product";
+            gap: 8px;
+        }
+
+        #product {
+          grid-area: product;
+          background-color: #dc9f24;
+          display: grid;
+          grid-template-columns: repeat(5, 1fr);
+          gap: 10px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main id="container">
+      <div class="header">header</div>
+      <div class="sidebar">sidebar</div>
+      <div class="img">
+      </div>
+      <div class="content">content</div>
+      <div class="tab-bar" id="tabbar">tapbar</div>
+      <div id="product"></div>
+    </main>
+  </body>
+  <script>
+    fetch("item-product.html")
+      .then((response) => {
+        return response.text();
+      })
+      .then((data) => {
+        document.getElementById("product").innerHTML = data.repeat(10);
+      });
+    fetch("item-tabbar.html")
+      .then((response) => {
+        return response.text();
+      })
+      .then((data) => {
+        document.getElementById("tabbar").innerHTML = data.repeat(8);
+      });
+  </script>
+</html>

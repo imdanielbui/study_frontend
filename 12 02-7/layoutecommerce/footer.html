@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Footer</title>
+    <style>
+      body{
+        all:unset;
+      }
+      .layout {
+        position: fixed;
+        bottom: 0px;
+        width: 100dvw;
+        height: 30dvh;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        grid-template-areas:
+          "heade contact contact icon"
+          "logo details details end";
+      }
+
+      .headenough {
+        grid-area: heade;
+        background-color: rebeccapurple;
+      }
+      .contact {
+        grid-area: contact;
+        background-color: antiquewhite;
+      }
+      .icon {
+        grid-area: icon;
+        background-color: aquamarine;
+        font-size: 20px;
+        font-weight: bold;
+        
+
+      }
+      .logo {
+        grid-area: logo;
+        background-color: #b04e4e;
+      }
+      .details {
+        grid-area: details;
+        background-color: aqua;
+        display: flex;
+        justify-content: space-evenly;
+        gap: 4px;
+      }
+
+      .item-details {
+        flex-grow: 1;
+        display: grid;
+        grid-template-rows: 30% auto 30%;
+        grid-template-areas:
+          "title"
+          "detail"
+          "links";
+      }
+      .title {
+        grid-area: title;
+        background-color: #75c18d;
+        flex-grow: 1;
+      }
+      .detailss {
+        grid-area: detail;
+        background-color: #1377c4;
+        flex-grow: 1;
+      }
+      .links {
+        grid-area: links;
+        background-color: #b04e8a;
+        flex-grow: 1;
+      }
+      .end {
+        grid-area: end;
+        background-color: blue;
+      }
+
+      span{
+        display: -webkit-box;
+    -webkit-line-clamp: 3;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="layout">
+      <div class="headenough">headenough</div>
+      <div class="contact"><h1>Contact Us</h1></div>
+      <div class="icon">&rightarrow;</div>
+      <div class="logo">
+        <span>The agency for impatient&reg;</span>
+      </div>
+      <div class="details">
+        <div class="item-details">
+          <div class="title">LonDon</div>
+          <div class="detailss">details</div>
+          <div class="links">links</div>
+        </div>
+        <div class="item-details">
+          <div class="title">Buenos Aires</div>
+          <div class="detailss">details</div>
+          <div class="links">links</div>
+        </div>
+      </div>
+      <div class="end">end</div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,176 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppings', sans-serif;
+}
+
+.header{
+  width: 100vw;
+  height: 100vh;
+  background-image: url(./images/background.png);
+  background-position: center;
+  background-size: cover;
+}
+
+.side-nav{
+  width: 90px;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 30px;
+  background: #25222252;
+  backdrop-filter: blur(30px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: width 0.5s;
+}
+
+.user{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 60px;
+  font-size: 12px;
+  padding: 10px;
+  border-radius: 8px;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+}
+.user div{
+  display: none;
+}
+.user h3{
+  font-size: 15px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.user-img{
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  background-position-x: center;
+  border-radius: 50%;
+}
+.star-img{
+  width: 0%;
+  display: none;
+}
+
+ul li{
+  margin: 30px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+ul li img{
+  width: 30px;
+}
+
+ul li p{
+  white-space: nowrap;
+  display: none;
+
+}
+
+.side-nav:hover{
+  width: 250px;
+}
+
+.side-nav:hover .user div{
+  display: block;
+}
+
+.side-nav:hover .user{
+  width: 100%;
+  background: rgba(255, 244, 244, 0.2);
+  backdrop-filter: blur(5px);
+}
+.side-nav:hover .star-img{
+  display: block;
+}
+
+.side-nav:hover ul li p{
+  display: block;
+  transition: width 0.5s;
+  
+}
+
+.side-nav:hover ul li img{
+  margin-right: 10px;
+  
+}
+
+.side-nav:hover ul li{
+  justify-content: flex-start;
+}
+
+
+#open{
+  display: none;
+}
+.open{
+  height: 80px;
+  width: 80px;
+  position: absolute;
+  top: 20px;
+  left: 60px;
+  background-color: #bd232300;
+}
+.open i{
+  font-size: 25px;
+  cursor: pointer;
+  margin-left: 25px;
+  margin-top: 25px;
+  background-color: #302f2f71;
+  padding: 15px 15px;
+  border-radius: 15px;
+  color: rgb(255, 255, 255);
+  z-index: 99;
+}
+#open:checked ~ .side-nav{
+  width: 250px;
+  transition: 0.5s;
+  transform: translateX(0);
+}
+#open:checked ~ .open i{
+  transition: 0.5s;
+  margin-left: 190px;
+  position: absolute;
+}
+
+/* edit sidebar with checkbox */
+
+#open:checked ~ .side-nav .user div{
+  display: block;
+}
+
+#open:checked ~ .side-nav .user{
+  width: 100%;
+  background: rgba(255, 244, 244, 0.2);
+  backdrop-filter: blur(5px);
+}
+#open:checked ~ .side-nav .star-img{
+  display: block;
+}
+
+#open:checked ~ .side-nav ul li p{
+  display: block;
+  transition: width 0.5s;
+  
+}
+
+#open:checked ~ .side-nav ul li img{
+  margin-right: 10px;
+  
+}
+
+#open:checked ~ .side-nav ul li{
+  justify-content: flex-start;
+}

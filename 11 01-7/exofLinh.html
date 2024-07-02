@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        all: unset;
+      }
+
+      main#content {
+        height: 100vh;
+        grid-template-rows: 10% 2fr 20%;
+        grid-template-columns: 1fr 2fr 1fr 1.5fr;
+        gap: 10px;
+        display: grid;
+        grid-template-areas:
+          "header header header header"
+          "hotnews img sidenews sidenews2"
+          "other other other sidenews2";
+      }
+
+      header#header {
+        grid-area: header;
+        background-color: #f1c40f;
+      }
+
+      section#hotnews {
+        grid-area: hotnews;
+        background-color: #e74c3c;
+      }
+
+      section#img {
+        grid-area: img;
+        background-color: #3498db;
+      }
+
+      section#sidenews {
+        grid-area: sidenews;
+        background-color: #2ecc71;
+      }
+
+      section#sidenews2 {
+        grid-area: sidenews2;
+        background-color: #9b59b6;
+      }
+
+      section#other {
+        grid-area: other;
+        background-color: #34495e;
+      }
+    </style>
+  </head>
+  <body>
+    <main id="content">
+      <header id="header">Header</header>
+      <section id="hotnews">Hot News</section>
+      <section id="img">Image</section>
+      <section id="sidenews">Side News</section>
+      <section id="sidenews2">Side News 2</section>
+      <section id="other">Other</section>
+    </main>
+  </body>
+  <SCript>
+    fetch("itemOther.html")
+          .then((response) => response.text())
+          .then((data) => {
+            document.querySelector("#other").innerHTML = data;
+          });
+  </SCript>
+</html>

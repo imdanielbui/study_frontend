@@ -10,15 +10,15 @@
         padding: 0;
       }
       .grid-container {
-        background-color: rgb(162, 99, 17);
-        width: 100dvw;
-        height: 100dvh;
+        background-color: rgb(17, 138, 162);
+        height: 100vh;
         display: grid;
         gap: 10px;
+        grid-template-rows: 15% 40% 40%;
         grid-template-areas:
           "head head head head head"
-          "giua giua giua giua le"
-          "duoi duoi duoi duoi le";
+          "giua giua giua giua le1"
+          "duoi duoi duoi duoi le1";
       }
       .head {
         background-color: rebeccapurple;
@@ -42,8 +42,8 @@
         gap: 10px;
       }
       .item-duoi{background-color: black};
-      .le {
-        grid-area: le;
+      .le1 {
+        grid-area: le1;
         background-color: rgb(0, 150, 243);
       }
       
@@ -53,19 +53,19 @@
     <main>
       <div class="grid-container">
         <div class="grid-item head"></div>
-        <div class="grid-item le"> <p>Lorem ipsum dolor sit amet.</p></div>
         <div class="grid-item giua">
           <div class="item-giua"></div>
           <div class="item-giua"></div>
           <div class="item-giua"></div>
         </div>
+        <div class="grid-item le1">ASDF</div>
         <div class="grid-item duoi">
           <div class="item-duoi"></div>
           <div class="item-duoi"></div>
           <div class="item-duoi"></div>
           <div class="item-duoi"></div>
         </div>
-        <div class="grid-item"></div>
+
       </div>
     </main>
   </body>

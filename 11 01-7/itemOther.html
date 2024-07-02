@@ -1,0 +1,49 @@
+<style>
+  body {
+    all: unset;
+  }
+  main.item-other {
+    /* display: grid;
+      height: 100%;
+      width: 70%;
+      grid-template-rows: 40% 25% 25% 10%;
+      grid-template-columns: 200px;
+      gap: 4px;
+      background-color: rgb(19, 255, 35);
+      overflow: hidden;
+      grid-template-areas: 
+      "Img"
+      "Title"
+      "Description"
+      "Button"; */
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 20%;
+  }
+  section.item-other__img {
+    flex-grow: 1;
+    background-color: rgb(13, 77, 55);
+  }
+  section.item-other__title {
+    background-color: rgb(13, 54, 77);
+  }
+  section.item-other__button {
+    background-color: rgb(77, 34, 13);
+    text-overflow: ellipsis;
+  }
+  section.item-other__description {
+    background-color: rgb(77, 13, 55);
+  }
+  img {
+    height: 100%;
+    object-fit: cover;
+  }
+</style>
+
+<main class="item-other">
+  <section class="item-other__img"><img src="https://picsum.photos/20" alt=""></section>
+  <section class="item-other__title">Title</section>
+  <section class="item-other__description">Description</section>
+  <section class="item-other__button">Button</section>
+</main>

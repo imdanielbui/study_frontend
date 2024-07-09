@@ -1,0 +1,79 @@
+nav {
+  display: flex;
+}
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+nav li {
+  display: inline-block;
+}
+nav a {
+  display: block;
+  padding: 8px 12px;
+  text-decoration: none;
+}
+/* yeucau2 */
+.info {
+  background: DarkGray;
+  box-shadow: 0 0 2px rgba(169, 169, 169, .25);
+  color: #fff;
+}
+.alert {
+  background: DarkRed;
+  box-shadow: 0 0 2px rgba(139, 0, 0, .25);
+  color: #fff;
+}
+.success {
+  background: DarkGreen;
+  box-shadow: 0 0 2px rgba(0, 100, 0, .25);
+  color: #fff;
+}
+/* yeucau3 */
+.container {
+  display: flex;
+}
+
+article[role="main"] {
+  width: 62.5%;
+}
+
+aside[role="complementary"] {
+  width: 31.25%;
+  margin-left: auto;
+}
+
+/* yeucau4 */
+body {
+  font: 100% Helvetica, sans-serif;
+  color: #333;
+  background-color: #fff;
+}
+
+
+/* my css */
+/* variable */
+:root{
+  --primary: #FFC636;
+}
+.grid{
+  display: grid;
+  grid-template-columns: repeat(8,1fr);
+}
+
+.site-nav{
+  margin: 0 20px;
+
+}
+
+.site-nav ul{
+  display: none;
+}
+
+.site-nav h1{
+  grid-column: 1/4;
+  grid-row: 1;
+  padding-bottom: 10px;
+  border-bottom: 3px solid var(--primary);
+}

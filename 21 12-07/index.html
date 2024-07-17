@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://kit.fontawesome.com/55be635751.js" crossorigin="anonymous" defer></script>
+    <script src="https://cdn.tailwindcss.com" defer></script>
+    <title>To Do List</title>
+  </head>
+  <style>
+    .completed {
+      background-color: rgb(32, 187, 52)
+    }
+    .remove {
+      color: crimson;
+      min-width: 60px;
+      padding: 10px 0px
+    }
+    .complete {
+      color: aquamarine;
+      min-width: 60px;
+      padding: 10px 0px
+    }
+    .edit {
+      color: coral;
+      min-width: 60px;
+      padding: 10px 0px
+    }
+    .todo-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      gap: 8px
+    }
+
+    .todo-item p {
+      flex-grow: 1;
+      line-clamp: 2;
+      -webkit-box-orient:vertical;
+      max-width: 300px
+    }
+
+    .cpl-checkbox {
+      padding: 10px;
+      margin-left: 15px
+    }
+  </style>
+  <body class="flex flex-col items-center justify-center h-dvh bg-gray-100">
+    <main class="flex flex-col items-center justify-start bg-gray-50 gap-8 rounded-[48px] p-[24px] shadow-[20px_20px_60px_rgba(190,190,190,0.3),-20px_-20px_60px_rgba(255,255,255,0.5)]">
+      <form id="todoForm" class="flex gap-4">
+        <input
+          type="text"
+          id="todoInput"
+          placeholder="Add a new todo"
+          class="min-w-96 rounded-3xl p-4 shadow-[30px_30px_50px_rgba(0,0,0,0.15),-30px_-30px_50px_rgb(255,255,255)] bg-gray-100 focus:outline-none focus:bg-gray-200 focus:shadow-inner transition duration-300 hover:translate-y-[-8px] active:hover:translate-y-[-1px]"
+        />
+        <button
+          type="submit"
+          class="borer-0 w-32 bg-gray-100 shadow-[4px_8px_15px_rgba(0,0,0,0.1)] p-4 px-6 rounded-3xl uppercase duration-300 ease-linear hover:ease-out hover:bg-[#23c483] hover:shadow-[4px_15px_20px_rgba(46,229,157,0.4)] hover:text-[#fff] hover:translate-y-[-8px] active:hover:translate-y-[-1px]"
+        >
+          Add
+        </button>
+        <button
+          id="clearbtn"
+          type="button"
+          class="borer-0 w-32 bg-gray-100 shadow-[4px_8px_15px_rgba(0,0,0,0.1)] p-4 px-6 rounded-3xl uppercase duration-300 ease-linear hover:ease-out hover:bg-[#9e76d0] hover:shadow-[4px_15px_20px_rgba(158,118,208,0.4)] hover:text-[#fff] hover:translate-y-[-8px] active:hover:translate-y-[-1px]"
+        >
+          Delete All
+        </button>
+        <button
+          id="completebtn"
+          type="button"
+          class="borer-0 w-32 bg-gray-100 shadow-[4px_8px_15px_rgba(0,0,0,0.1)] p-4 px-6 rounded-3xl uppercase duration-300 ease-linear hover:ease-out hover:bg-[#9e76d0] hover:shadow-[4px_15px_20px_rgba(158,118,208,0.4)] hover:text-[#fff] hover:translate-y-[-8px] active:hover:translate-y-[-1px]"
+        >
+          Complete All
+        </button>
+      </form>
+      <div id="todoList"></div>
+    </main>
+  </body>
+  <script>
+    class ToDo {
+      constructor(text) {
+        this.id = Date.now()
+        this.text = text
+        this.completed = false
+      }
+      toggleCompleted() {
+        this.completed = !this.completed
+      }
+    }
+    const todoForm = document.getElementById("todoForm")
+    const todoInput = document.getElementById("todoInput")
+    const todoList = document.getElementById("todoList")
+    const todoClearBtn = document.getElementById("clearbtn")
+    const todoCompleteBtn = document.getElementById("completebtn")
+    const todoItem = document.getElementsByClassName("todo-item")
+    const todoCheckbox = document.getElementsByClassName("cpl-checkbox")
+    const todoEditbtn = document.getElementsByClassName("edit")
+    var listToDo
+
+    function addToDo(todo) {
+      if (todo.text.trim() != "") {
+        const todoItem = document.createElement("div")
+        todoItem.classList.add("todo-item", todo.completed ? "completed" : "incomplete", "rounded-3xl", "p-2", "shadow-[4px_15px_30px_rgba(0,0,0,0.15),-4px_-15px_30px_rgb(255,255,255)]", "m-4", "min-w-96")
+        todoItem.id = todo.id
+        addCheckbox(todoItem)
+        addText(todoItem, todo.text)
+        addEditBtn(todoItem)
+        addCompletedBtn(todoItem)
+        addRemoveBtn(todoItem)
+        todoList.appendChild(todoItem)
+        todoInput.value = ""
+      }
+    }
+
+    function addText(e, text) {
+      const textP = document.createElement("p")
+      textP.classList.add("textodocontent", "text-sm", "font-medium", "leading-4", "break-words")
+      textP.textContent = text
+      e.appendChild(textP)
+    }
+
+    function addCheckbox(e) {
+      const completeCheckbox = document.createElement("input")
+      completeCheckbox.type = "checkbox"
+      completeCheckbox.classList.add("cpl-checkbox")
+      e.appendChild(completeCheckbox)
+    }
+
+    function addRemoveBtn(e) {
+      const removeBtn = document.createElement("button")
+      removeBtn.textContent = ""
+      removeBtn.classList.add("remove", "fa-solid", "fa-trash")
+      e.appendChild(removeBtn)
+    }
+
+    function addCompletedBtn(e) {
+      const completeBtn = document.createElement("button")
+      completeBtn.textContent = ""
+      completeBtn.classList.add("complete", "fa-solid", "fa-check")
+      e.appendChild(completeBtn)
+    }
+
+    function addEditBtn(e) {
+      const editBtn = document.createElement("button")
+      editBtn.textContent = ""
+      editBtn.classList.add("edit", "fa-solid", "fa-pencil-alt")
+      e.appendChild(editBtn)
+    }
+
+    function getListTodo() {
+      if (localStorage.getItem("listtodo") === null) {
+        localStorage.setItem("listtodo", JSON.stringify([]))
+      } else {
+        const todos = JSON.parse(localStorage.getItem("listtodo"))
+        todos.forEach((todo) => addToDo(todo))
+      }
+    }
+
+    function addListTodoLocal(todoItem) {
+      if (localStorage.getItem("listtodo") !== null) {
+        listToDo = JSON.parse(localStorage.getItem("listtodo"))
+        listToDo.push(todoItem)
+        localStorage.setItem("listtodo", JSON.stringify(listToDo))
+      } else {
+        listToDo.push(todoItem)
+        localStorage.setItem("listtodo", JSON.stringify(listToDo))
+      }
+    }
+
+    function removeToDoItem(e) {
+      const todoId = e.target.parentElement.id
+      let listToDorm = JSON.parse(localStorage.getItem("listtodo"))
+      listToDorm = listToDorm.filter((todo) => todo.id != todoId)
+      localStorage.setItem("listtodo", JSON.stringify(listToDorm))
+      e.target.parentElement.remove()
+    }
+
+    function updateToDoItem(e) {
+      const todoId = e.target.parentElement.id
+      let listToDorm = JSON.parse(localStorage.getItem("listtodo"))
+      let itemToDo = listToDorm.filter((item) => item.id == e.target.parentElement.id)
+      listToDorm = listToDorm.map((todo) => (todo.id == todoId ? { ...todo, completed: !itemToDo[0].completed } : todo))
+      localStorage.setItem("listtodo", JSON.stringify(listToDorm))
+      e.target.parentElement.classList.toggle("completed")
+    }
+
+    function deleteSelectorToDoItem(e) {
+      let listToDorm = JSON.parse(localStorage.getItem("listtodo"))
+      Array.from(todoCheckbox)
+        .filter((i) => i.checked)
+        .forEach((item) => {
+          listToDorm = listToDorm.filter((todo) => todo.id != item.parentElement.id)
+          item.parentElement.remove()
+        })
+      localStorage.setItem("listtodo", JSON.stringify(listToDorm))
+    }
+
+    function completeAllToDoItem() {
+      let listToDorm = JSON.parse(localStorage.getItem("listtodo"))
+      // listToDorm = listToDorm.map((todo) => ({...todo, completed: true }))
+      // Array.from(todoItem).forEach((item) => (item.classList.add("completed")))
+
+      Array.from(todoCheckbox)
+        .filter((i) => i.checked)
+        .forEach((item) => {
+          item.parentElement.classList.add("completed")
+          listToDorm.filter((todo) => todo.id == item.parentElement.id)[0].completed = true
+        })
+      Array.from(todoCheckbox).forEach((item) => (item.checked = false))
+      localStorage.setItem("listtodo", JSON.stringify(listToDorm))
+    }
+
+    function editTodoItem(e) {
+      const listToDo = JSON.parse(localStorage.getItem("listtodo"))
+      const index = Array.from(todoItem).findIndex((item) => item.id === e.target.parentElement.id)
+      const editedItem = listToDo[index]
+      const inputField = document.createElement("input")
+      inputField.classList.add("textodocontent", "text-sm", "font-medium", "leading-4", "break-words")
+      inputField.type = "text"
+      inputField.value = editedItem.text
+      e.target.parentElement.replaceChild(inputField, e.target.parentElement.getElementsByClassName("textodocontent")[0])
+      inputField.addEventListener("blur", (event) => {
+        editedItem.text = event.target.value
+        listToDo[index] = editedItem
+        localStorage.setItem("listtodo", JSON.stringify(listToDo))
+      })
+    }
+
+    function saveTodoItem(e) {
+      const textp = document.createElement("p")
+      textp.classList.add("textodocontent", "text-sm", "font-medium", "leading-4", "break-words")
+      textp.textContent = e.target.parentElement.getElementsByClassName("textodocontent")[0].value
+      e.target.parentElement.replaceChild(textp, e.target.parentElement.getElementsByClassName("textodocontent")[0])
+    }
+
+    function changeIconEditToSave(e) {
+      const icon = e.target
+      if (icon.classList.contains("fa-pencil-alt")) {
+        icon.classList.replace("fa-pencil-alt", "fa-save")
+        editTodoItem(e)
+      } else {
+        icon.classList.replace("fa-save", "fa-pencil-alt")
+        saveTodoItem(e)
+      }
+    }
+
+    function showhindenBtn() {
+      const checkedCount = Array.from(todoCheckbox).filter((i) => i.checked).length
+      if (todoItem.length === 0 || checkedCount === 0) {
+        todoClearBtn.style.display = "none"
+        todoCompleteBtn.style.display = "none"
+      } else {
+        todoClearBtn.style.display = "block"
+        todoCompleteBtn.style.display = "block"
+      }
+    }
+
+    showhindenBtn()
+
+    getListTodo()
+
+    todoForm.addEventListener("submit", (event) => {
+      let todoItem = new ToDo()
+      todoItem.text = todoInput.value
+      addListTodoLocal(todoItem)
+      addToDo(todoItem)
+      event.preventDefault()
+    })
+
+    todoList.addEventListener("click", (e) => {
+      if (e.target.tagName === "BUTTON" && e.target.classList.contains("remove")) {
+        removeToDoItem(e)
+      } else if (e.target.tagName === "BUTTON" && e.target.classList.contains("complete")) {
+        updateToDoItem(e)
+      } else if (e.target.tagName === "INPUT" && e.target.classList.contains("cpl-checkbox")) {
+        showhindenBtn()
+      } else if (e.target.tagName === "BUTTON" && e.target.classList.contains("edit")) {
+        changeIconEditToSave(e)
+      }
+    })
+
+    todoClearBtn.addEventListener("click", () => {
+      deleteSelectorToDoItem()
+      showhindenBtn()
+    })
+
+    todoCompleteBtn.addEventListener("click", (e) => {
+      completeAllToDoItem()
+      showhindenBtn()
+    })
+  </script>
+</html>
